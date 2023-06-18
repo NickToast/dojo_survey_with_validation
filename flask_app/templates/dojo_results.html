@@ -13,13 +13,11 @@
 <body>
     <div class="container mt-5">
         <div class="col-6 rounded bg-dark text-light container d-flex flex-column">
-            {% for x in one_survey %}
             <h1 class="m-4">Submitted Info</h1>
             <h5 class="m-4">Name: {{one_survey['name']}}</h5>
             <h5 class="m-4">Location: {{one_survey['location']}}</h5>
             <h5 class="m-4">Favorite Language: {{one_survey['language']}}</h5>
-            <h5 class="m-4">Comments: {{one_survey['comments']}}</h5>
-            {% endfor %}
+            <h5 class="m-4">Comments: {{one_survey['comment']}}</h5>
             <div class="d-flex justify-content-end">
                 <a class="mx-4 mt-4 mb-5" href="/">
                     <button class="btn bg-warning border-1 py-2">Go Back</button>
@@ -28,7 +26,7 @@
             
         </div>
     </div>
-    <button class="btn bg-color border-1 py-2">Go Back</button>
+    <!-- <button class="btn bg-color border-1 py-2">Go Back</button> -->
 
 
 

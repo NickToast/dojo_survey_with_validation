@@ -10,7 +10,8 @@ class DojoSurvey:
         self.location = data['location']
         self.language = data['language']
         self.comment = data['comment']
-
+        self.created_at = data['created_at']
+        self.updated_at = data['updated_at']
 
     @staticmethod
     def validate_survey(survey):
@@ -19,10 +20,10 @@ class DojoSurvey:
         if len (survey['name']) < 3:
             flash('Name must be at least 3 characters.')
             is_valid = False
-        if survey['location'] != True:
+        if len(survey['location']) < 1:
             flash('Must choose a dojo location.')
             is_valid = False
-        if survey['language'] != True:
+        if len(survey['language']) < 1:
             flash('Must choose a dojo location.')
             is_valid = False
         if len(survey['comment']) < 3:
@@ -37,15 +38,25 @@ class DojoSurvey:
         VALUES (%(name)s, %(location)s, %(language)s, %(comment)s)
         """
 
-        results = connectToMySQL(cls.DB) .query_db(query, data)
-        return results
+        return connectToMySQL(cls.DB).query_db(query, data)
+        # return results
+    
+    # @classmethod
+    # def get_one(cls, data):
+    #     query = """
+    #     SELECT * FROM dojos
+    #     WHERE id = %(id)s;
+    #     """
+
+    #     results = connectToMySQL(cls.DB).query_db(query, data)
+    #     return results
     
     @classmethod
-    def get_one(cls, data):
+    def get_last(cls):
         query = """
         SELECT * FROM dojos
-        WHERE id = %(id)s;
+        ORDER BY dojos.id
+        DESC LIMIT 1;
         """
-
-        results = connectToMySQL(cls.DB).query_db(query, data)
-        return results
+        results = connectToMySQL(cls.DB).query_db(query)
+        return DojoSurvey(results[0])

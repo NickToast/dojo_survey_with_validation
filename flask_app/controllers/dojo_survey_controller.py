@@ -3,9 +3,12 @@ from flask import render_template, redirect, request, session
 from flask_app.models.dojo_survey_model import DojoSurvey
 
 
-
 @app.route('/')
 def index():
+    return redirect('/dojo_survey')
+
+@app.route('/dojo_survey')
+def show_survey():
     return render_template('dojo_survey.html')
 
 #ACTION PAGE FOR SURVEY
@@ -24,6 +27,6 @@ def successful_survey():
 
 #SHOW PAGE FOR RESULTS
 @app.route('/results')
-def results():
-    one_survey = DojoSurvey.get_one()
-    return render_template('results.html')
+def survey_results():
+    one_survey = DojoSurvey.get_last()
+    return render_template('dojo_results.html', one_survey = one_survey)

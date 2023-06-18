@@ -36,7 +36,7 @@
             <div class="m-4 d-flex flex-column">
                 <label class="mb-3" for="dojolocation">Dojo Location: </label>
                 <select class="form-select" name="location" id="dojolocation">
-                    <option selected>-- Select a Location --</option>
+                    <option value="">-- Select a Location --</option>
                     <option value="Chicago">Chicago</option>
                     <option value="Seattle">Seattle</option>
                     <option value="Online">Online</option>
@@ -48,12 +48,12 @@
             <div class="m-4 d-flex flex-column">
                 <label class="mb-3" for="favlanguage">Favorite Language: </label>
                 <select class="form-select" name="language" id="favlanguage">
-                    <option selected>-- Select a Language --</option>
+                    <option value="">-- Select a Language --</option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="Python">Python</option>
-                    <option value="Csharp">C#</option>
+                    <option value="C#">C#</option>
                 </select>
             </div>
             {#inline check boxes#}
@@ -75,8 +75,8 @@
             </div>#}
             {#comments box#}
             <div class="m-4 d-flex flex-column">
-                <label class="mb-3" for="comments">Comments: </label>
-                <textarea class="p-2" name="comments"></textarea>
+                <label class="mb-3" for="comment">Comments: </label>
+                <textarea class="p-2" name="comment"></textarea>
             </div>
             <div class="m-4 d-flex justify-content-end">
                 <input class="btn bg-warning border-1 py-2" type="submit">
